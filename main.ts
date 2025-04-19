@@ -56,7 +56,7 @@ namespace LEDTesting {
 }
 basic.forever(function () {
     LEDTesting.showIcon(ExtraIconNames.First, 500)
-    LEDTesting.showIcon(ExtraIconNames.Second, 500)
+    LEDTesting.showIcon(ExtraIconNames.First, 500)
     LEDTesting.showIcon(ExtraIconNames.Third, 500)
     basic.showIcon(IconNames.Happy)
 })
