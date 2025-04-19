@@ -13,8 +13,8 @@ namespace LEDTesting {
 
     //% block
     //% icon.fieldEditor="gridpicker"
-    //% icon.fieldOptions.width=220
-    //% icon.fieldOptions.columns=3
+    //% icon.fieldOptions.width=160
+    //% icon.fieldOptions.columns=2
     export function showIcon(icon: ExtraIconNames, interval = 600) {
         let res;
         switch (icon) {
@@ -58,5 +58,5 @@ basic.forever(function () {
     LEDTesting.showIcon(ExtraIconNames.First, 500)
     LEDTesting.showIcon(ExtraIconNames.Second, 500)
     LEDTesting.showIcon(ExtraIconNames.Third, 500)
-    basic.showIcon(IconNames.No)
+    basic.showIcon(IconNames.Happy)
 })
