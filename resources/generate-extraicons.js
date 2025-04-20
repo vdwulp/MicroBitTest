@@ -41,6 +41,15 @@ try {
 }
 
 try {
+  if (!fs.existsSync(path.join(__dirname, "../jres"))) {
+    console.log("Creating PNG-directory...");
+    fs.mkdirSync(path.join(__dirname, outputdir));
+  }
+} catch (err) {
+  console.error(err);
+}
+
+try {
   if (!fs.existsSync(path.join(__dirname, outputdir))) {
     console.log("Creating PNG-directory...");
     fs.mkdirSync(path.join(__dirname, outputdir));
