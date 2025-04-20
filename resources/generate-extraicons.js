@@ -32,7 +32,7 @@ const extraicons = {
 
 console.log("Current directory:", __dirname);
 try {
-  if (!fs.existsSync(svgdir)) {
+  if (!fs.existsSync(path.join(__dirname, svgdir))) {
     console.log("Creating SVG-directory...");
     fs.mkdirSync(path.join(__dirname, svgdir));
   }
@@ -41,7 +41,7 @@ try {
 }
 
 try {
-  if (!fs.existsSync(outputdir)) {
+  if (!fs.existsSync(path.join(__dirname, outputdir))) {
     console.log("Creating PNG-directory...");
     fs.mkdirSync(path.join(__dirname, outputdir));
   }
