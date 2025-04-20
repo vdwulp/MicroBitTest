@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'resources/generate-extraicons.js'
+      - '**.yml'
 
 jobs:
   generate:
