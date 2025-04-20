@@ -31,6 +31,13 @@ const extraicons = {
 }
 
 console.log("Current directory:", __dirname);
+try {
+  if (!fs.existsSync(svgdir)) {
+    fs.mkdirSync(svgdir);
+  }
+} catch (err) {
+  console.error(err);
+}
 
 Object.keys(extraicons).forEach(icon => {
     const data = extraicons[icon];
