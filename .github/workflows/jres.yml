@@ -20,13 +20,18 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 18
-    - name: Install path
-      run: npm install path
-    - name: Install svg2png
-      run: npm install svg2png
-    - name: Generate images
+#    - name: Install path
+#      run: npm install path
+#    - name: Install svg2png
+#      run: npm install svg2png
+    - name: Generate SVG images
       run: node resources/generate-extraicons.js
       shell: bash
+    - name: Convert SVG to PNG
+        uses: joergnapp/convert-svg-to-png@main
+        with:
+          svgpath: 'resources/extraicons/'
+          pngpath: 'jres/extraicons/'
     - name: Clean-up JSON
       run: rm package.json package-lock.json
     - name: List repository contents (for debugging)
