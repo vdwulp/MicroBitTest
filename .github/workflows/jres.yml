@@ -28,10 +28,10 @@ jobs:
       run: node resources/generate-extraicons.js
       shell: bash
     - name: Convert SVG to PNG
-        uses: joergnapp/convert-svg-to-png@main
-        with:
-          svgpath: 'resources/extraicons/'
-          pngpath: 'jres/extraicons/'
+      uses: joergnapp/convert-svg-to-png@main
+      with:
+        svgpath: 'resources/extraicons/'
+        pngpath: 'jres/extraicons/'
     - name: Clean-up JSON
       run: rm package.json package-lock.json
     - name: List repository contents (for debugging)
