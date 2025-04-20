@@ -10,7 +10,7 @@ var outputdir = "extraicons-png";
 const svgNS = "http://www.w3.org/2000/svg";
 
 const extraicons = {
-  ball: ` 
+  ball: `
     . # # # .
     # # # # #
     # # # # #
