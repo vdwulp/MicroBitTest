@@ -33,6 +33,7 @@ const extraicons = {
 console.log("Current directory:", __dirname);
 try {
   if (!fs.existsSync(svgdir)) {
+    console.log("Creating directory...");
     fs.mkdirSync(svgdir);
   }
 } catch (err) {
