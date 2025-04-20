@@ -28,6 +28,14 @@ jobs:
       with:
         svgpath: 'resources/extraicons/'
         pngpath: 'jres/extraicons/'
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+    - name: Install PXT
+      run: npm install -g pxt
+    - name: Generate JRES
+      run: pxt jres
     - name: List repository contents (for debugging)
       run: |
         ls -R
