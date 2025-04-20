@@ -21,9 +21,9 @@ jobs:
       with:
         node-version: 18
     - name: Install path
-      run: npm install path -g
+      run: npm install path
     - name: Install svg2png
-      run: npm install svg2png -g
+      run: npm install svg2png
     - name: Generate images
       run: node resources/generate-extraicons.js
       shell: bash
