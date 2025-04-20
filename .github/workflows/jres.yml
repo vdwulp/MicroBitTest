@@ -3,7 +3,7 @@ name: GenerateJRES
 on:
   push:
     paths:
-      - '/resources/generate-extraicons.js'
+      - 'resources/generate-extraicons.js'
 
 jobs:
   build:
