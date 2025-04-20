@@ -17,6 +17,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 18
+    - name: Install svg2png
       run: npm install svg2png
     - name: Generate images
       run: node /resources/generate-extraicons.js
