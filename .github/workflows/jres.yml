@@ -25,8 +25,8 @@ jobs:
       run: node resources/generate-extraicons.js
       shell: bash
     - name: List repository contents (for debugging)
-        run: |
-          ls -R
+      run: |
+        ls -R
     - name: Commit & Push changes
       uses: actions-js/push@master
       with:
