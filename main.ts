@@ -1,62 +1,66 @@
 enum ExtraIconNames {
-    //% block="ZoomRight"
-    //% jres=extraicons.zoomright
-    First,
-    //% block="ZoomLeft"
-    //% jres=extraicons.zoomleft
-    Second,
+    //% block="Ball"
+    //% jres=extraicons.ball
+    Ball,
+    //% block="Magnifier"
+    //% jres=extraicons.magnifier
+    Magnifier,
     //% block="MicroBit"
     //% jres=extraicons.microbit
-    Third
+    MicroBit
 }
-namespace LEDTesting {
+namespace ExtraIcons {
 
     //% block
-    //% icon.fieldEditor="gridpicker"
-    //% icon.fieldOptions.width=160
-    //% icon.fieldOptions.columns=2
-    export function showIcon(icon: ExtraIconNames, interval = 600) {
-        let res;
-        switch (icon) {
-            case ExtraIconNames.First:
-                res = images.createImage(
-                    ` . . # # #
-                      . . # . #
-                      . . # # #
-                      . # . . .
-                      # . . . .` )
-                break
-            case ExtraIconNames.Second:
-                res = images.createImage(
-                    ` # # # . .
-                      # . # . .
-                      # # # . .
-                      . . . # .
-                      . . . . #` )
-                break
-            case ExtraIconNames.Third:
-                res = images.createImage(
-                    ` . . . . .
-                      # # # # #
-                      # . # . #
-                      # # # # #
-                      . . . . .` )
-                break
-            default:
-                res = images.createImage(
-                    ` # . . . .
-                      . # . . .
-                      . . # # #
-                      . . # . #
-                      . . # # #` )
-        }
+    //% weight=90 blockGap=8
+    //% icon.fieldEditor="imagedropdown"
+    //% icon.fieldOptions.columns="5"
+    //% icon.fieldOptions.width="380"
+    //% icon.fieldOptions.maxRows=4
+    export function showExtraIcon(icon: ExtraIconNames) {
+        let res = extraIconImage(icon)
         res.showImage(0, 600)
+    }
+
+    //% block
+    //% weight=50 blockGap=8
+    //% i.fieldEditor="imagedropdown"
+    //% i.fieldOptions.columns="5"
+    //% i.fieldOptions.width="380"
+    //% i.fieldOptions.maxRows=4
+    export function extraIconImage(i: ExtraIconNames): Image {
+        switch (i) {
+            case ExtraIconNames.Ball: return images.createImage(
+                ` . # # # .
+                  # # # # #
+                  # # # # #
+                  # # # # #
+                  . # # # .` )
+            case ExtraIconNames.Magnifier: return images.createImage(
+                ` # # # . .
+                  # . # . .
+                  # # # . .
+                  . . . # .
+                  . . . . #` )
+            case ExtraIconNames.MicroBit: return images.createImage(
+                ` . . . . .
+                  # # # # #
+                  # . # . #
+                  # # # # #
+                  . . . . .` )
+            default: return images.createImage(
+                ` . # # # .
+                  # . . . #
+                  . . . # .
+                  . . # . .
+                  . . # . .` )
+        }
     }
 
 }
 basic.forever(function () {
-    LEDTesting.showIcon(ExtraIconNames.First, 500)
-    LEDTesting.showIcon(ExtraIconNames.First, 500)
-    LEDTesting.showIcon(ExtraIconNames.Third, 500)
+    ExtraIcons.showExtraIcon(ExtraIconNames.Ball)
+    ExtraIcons.showExtraIcon(ExtraIconNames.Magnifier)
+    ExtraIcons.showExtraIcon(ExtraIconNames.MicroBit)
     basic.showIcon(IconNames.Happy)
 })
