@@ -27,6 +27,8 @@ jobs:
     - name: Generate images
       run: node resources/generate-extraicons.js
       shell: bash
+    - name: Clean-up JSON
+      run: rm package.json package-lock.json
     - name: List repository contents (for debugging)
       run: |
         ls -R
@@ -35,3 +37,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: 'master'
+        message: 'Auto-generation JRES'
