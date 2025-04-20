@@ -4,8 +4,8 @@ var path = require('path');
 // You need to npm install svg2png for this to work
 //var svg2png = require('svg2png');
 
-var svgdir = "resources/extraicons";
-var outputdir = "resources/extraicons-png";
+var svgdir = "extraicons";
+var outputdir = "extraicons-png";
 
 const svgNS = "http://www.w3.org/2000/svg";
 
