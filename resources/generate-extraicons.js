@@ -2,10 +2,10 @@ var fs = require('fs');
 var path = require('path');
 
 // You need to npm install svg2png for this to work
-var svg2png = require('svg2png');
+//var svg2png = require('svg2png');
 
 var svgdir = "extraicons";
-var outputdir = "../jres/extraicons";
+//var outputdir = "../jres/extraicons";
 
 const svgNS = "http://www.w3.org/2000/svg";
 
@@ -40,9 +40,9 @@ try {
   console.error(err);
 }
 
-try {
+/*try {
   if (!fs.existsSync(path.join(__dirname, "../jres"))) {
-    console.log("Creating PNG-directory...");
+    console.log("Creating JRES-directory...");
     fs.mkdirSync(path.join(__dirname, "../jres"));
   }
 } catch (err) {
@@ -56,7 +56,7 @@ try {
   }
 } catch (err) {
   console.error(err);
-}
+}*/
 
 Object.keys(extraicons).forEach(icon => {
     const data = extraicons[icon];
@@ -84,10 +84,10 @@ Object.keys(extraicons).forEach(icon => {
         if (err) console.log("error writing to file");
     });
 
-    const sourceBuffer = Buffer.from(svg, 'utf8');
+    /*const sourceBuffer = Buffer.from(svg, 'utf8');
     svg2png(sourceBuffer, { width: 200, height: 200 })
         .then(buffer => fs.writeFile(path.join(outputdir, icon + "-icon.png"), buffer, { encoding: 'utf8', flag: 'w' }, function (err, result) {
             if (err) console.log("error writing to file");
         }))
-        .catch(e => console.error(e));
+        .catch(e => console.error(e));*/
 });
