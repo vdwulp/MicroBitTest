@@ -30,6 +30,8 @@ const extraicons = {
     . . . . .`
 }
 
+console.log("Current directory:", __dirname);
+
 Object.keys(extraicons).forEach(icon => {
     const data = extraicons[icon];
     const hexLiteral = data
