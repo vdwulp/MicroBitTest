@@ -2,7 +2,7 @@ var fs = require('fs');
 var path = require('path');
 
 // You need to npm install svg2png for this to work
-//var svg2png = require('svg2png');
+var svg2png = require('svg2png');
 
 var svgdir = "extraicons";
 var outputdir = "../jres/extraicons";
@@ -43,7 +43,7 @@ try {
 try {
   if (!fs.existsSync(path.join(__dirname, "../jres"))) {
     console.log("Creating PNG-directory...");
-    fs.mkdirSync(path.join(__dirname, outputdir));
+    fs.mkdirSync(path.join(__dirname, "../jres"));
   }
 } catch (err) {
   console.error(err);
