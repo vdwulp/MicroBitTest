@@ -20,7 +20,7 @@ jobs:
     - name: Install svg2png
       run: npm install svg2png
     - name: Generate images
-      run: node /resources/generate-extraicons.js
+      run: node resources/generate-extraicons.js
       shell: bash
     - name: Commit & Push changes
       uses: actions-js/push@master
