@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "path": "^0.12.7",
-    "svg2png": "^4.1.1"
-  }
-}
