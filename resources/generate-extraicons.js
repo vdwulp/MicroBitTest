@@ -53,6 +53,7 @@ Object.keys(extraicons).forEach(icon => {
     }
     svg += `</svg>`;
     const svgPath = path.join(__dirname, svgdir, icon + ".svg");
+    console.log(svgPath);
     fs.writeFile(svgPath, svg, { encoding: 'utf8', flag: 'w' }, function(err, result) {
         if (err) console.log("error writing to file");
     });
