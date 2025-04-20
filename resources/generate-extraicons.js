@@ -5,7 +5,7 @@ var path = require('path');
 var svg2png = require('svg2png');
 
 var svgdir = "extraicons";
-var outputdir = "/jres/extraicons";
+var outputdir = "extraicons-png";
 
 const svgNS = "http://www.w3.org/2000/svg";
 
