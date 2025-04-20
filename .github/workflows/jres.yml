@@ -35,5 +35,5 @@ jobs:
       uses: actions-js/push@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: 'master'
+        branch: GITHUB_HEAD_REF
         message: 'Auto-generation JRES'
