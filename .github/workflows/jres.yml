@@ -32,8 +32,8 @@ jobs:
       with:
         svgpath: 'resources/extraicons/'
         pngpath: 'jres/extraicons/'
-    - name: Clean-up JSON
-      run: rm package.json package-lock.json
+#    - name: Clean-up JSON
+#      run: rm package.json package-lock.json
     - name: List repository contents (for debugging)
       run: |
         ls -R
