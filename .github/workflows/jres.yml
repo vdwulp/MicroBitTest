@@ -16,14 +16,10 @@ jobs:
       with:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0             # otherwise, you will fail to push refs to dest repo
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 18
-#    - name: Install path
-#      run: npm install path
-#    - name: Install svg2png
-#      run: npm install svg2png
+#    - name: Setup Node.js
+#      uses: actions/setup-node@v4
+#      with:
+#        node-version: 18
     - name: Generate SVG images
       run: node resources/generate-extraicons.js
       shell: bash
@@ -32,8 +28,6 @@ jobs:
       with:
         svgpath: 'resources/extraicons/'
         pngpath: 'jres/extraicons/'
-#    - name: Clean-up JSON
-#      run: rm package.json package-lock.json
     - name: List repository contents (for debugging)
       run: |
         ls -R
