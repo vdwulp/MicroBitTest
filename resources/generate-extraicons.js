@@ -5,7 +5,7 @@ var path = require('path');
 //var svg2png = require('svg2png');
 
 var svgdir = "extraicons";
-var outputdir = "extraicons-png";
+var outputdir = "../jres/extraicons";
 
 const svgNS = "http://www.w3.org/2000/svg";
 
@@ -33,8 +33,17 @@ const extraicons = {
 console.log("Current directory:", __dirname);
 try {
   if (!fs.existsSync(svgdir)) {
-    console.log("Creating directory...");
+    console.log("Creating SVG-directory...");
     fs.mkdirSync(path.join(__dirname, svgdir));
+  }
+} catch (err) {
+  console.error(err);
+}
+
+try {
+  if (!fs.existsSync(outputdir)) {
+    console.log("Creating PNG-directory...");
+    fs.mkdirSync(path.join(__dirname, outputdir));
   }
 } catch (err) {
   console.error(err);
@@ -66,10 +75,10 @@ Object.keys(extraicons).forEach(icon => {
         if (err) console.log("error writing to file");
     });
 
-    /*const sourceBuffer = Buffer.from(svg, 'utf8');
+    const sourceBuffer = Buffer.from(svg, 'utf8');
     svg2png(sourceBuffer, { width: 200, height: 200 })
         .then(buffer => fs.writeFile(path.join(outputdir, icon + "-icon.png"), buffer, { encoding: 'utf8', flag: 'w' }, function (err, result) {
             if (err) console.log("error writing to file");
         }))
-        .catch(e => console.error(e));*/
+        .catch(e => console.error(e));
 });
