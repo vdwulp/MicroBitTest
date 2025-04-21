@@ -24,6 +24,9 @@ jobs:
       with:
         svgpath: 'resources/extraicons/svg/'
         pngpath: 'resources/extraicons/png/'
+    - name: Generate JRES file
+      run: node resources/generate-jres.js
+      shell: bash
     - name: List repository contents (for debugging)
       run: |
         ls -R
