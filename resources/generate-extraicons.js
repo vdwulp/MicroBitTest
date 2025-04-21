@@ -37,10 +37,10 @@ function createPath( namespace, dir ) {
 
 function createDirectory( dir ) {
   try {
-    var path = path.join( __dirname, dir );
-    if ( !fs.existsSync( path ) ) {
-      console.log( "Creating directory " + path );
-      fs.mkdirSync( path );
+    var p = path.join( __dirname, dir );
+    if ( !fs.existsSync( p ) ) {
+      console.log( "Creating directory " + p );
+      fs.mkdirSync( p );
     }
   } catch (err) {
     console.error( err );
