@@ -34,7 +34,7 @@ var jres  = `{\n`;
 
 // Write JRES to file
 const jrespath = path.join( __dirname, jresdir, namespace + ".jres" );
-console.log( "Creating JRES file " + jresath );
+console.log( "Creating JRES file " + jrespath );
 fs.writeFile( jrespath, jres, { encoding: 'utf8', flag: 'w' }, function( err, result ) {
   if (err) console.log( "Error writing to " + jrespath );
 });
