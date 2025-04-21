@@ -14,20 +14,16 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-        fetch-depth: 0             # otherwise, you will fail to push refs to dest repo
-#    - name: Setup Node.js
-#      uses: actions/setup-node@v4
-#      with:
-#        node-version: 18
+        persist-credentials: false
+        fetch-depth: 0
     - name: Generate SVG images
       run: node resources/generate-extraicons.js
       shell: bash
     - name: Convert SVG to PNG
       uses: joergnapp/convert-svg-to-png@main
       with:
-        svgpath: 'resources/extraicons/'
-        pngpath: 'jres/extraicons/'
+        svgpath: 'resources/extraicons/svg/'
+        pngpath: 'resources/extraicons/png/'
     - name: List repository contents (for debugging)
       run: |
         ls -R
