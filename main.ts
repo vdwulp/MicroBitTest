@@ -122,7 +122,7 @@ namespace ExtraIcons {
 
 }
 basic.forever(function () {
-    ExtraIcons.showExtraIcon(ExtraIconNames.Ball)
+    ExtraIcons.showExtraIcon(ExtraIconNames.Grid)
     ExtraIcons.showExtraIcon(ExtraIconNames.Windows)
     ExtraIcons.showExtraIcon(ExtraIconNames.Diagonal2)
     ExtraIcons.showExtraIcon(ExtraIconNames.Diagonal1)
