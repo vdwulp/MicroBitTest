@@ -4,9 +4,6 @@ var path = require('path');
 var namespace = "extraicons";
 var pngdir = "png";
 
-const testFolder = './tests/';
-const fs = require('fs');
-
 var p = path.join( __dirname, namespace, pngdir );
 console.log( "Reading directory " + p );
 fs.readdirSync( p ).forEach( file => {
