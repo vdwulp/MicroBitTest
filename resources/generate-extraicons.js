@@ -22,7 +22,13 @@ const extraicons = {
     # # # # #
     # . # . #
     # # # # #
-    . . . . .`
+    . . . . .`,
+  notes: `
+    . . . . #
+    . # . . #
+    . # . # #
+    # # . # #
+    # # . . .`
 }
 
 // Check/create directories
