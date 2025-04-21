@@ -7,7 +7,10 @@ enum ExtraIconNames {
     Magnifier,
     //% block="MicroBit"
     //% jres=extraicons.microbit
-    MicroBit
+    MicroBit,
+    //% block="Notes"
+    //% jres=extraicons.notes
+    Notes
 }
 namespace ExtraIcons {
 
@@ -62,5 +65,6 @@ basic.forever(function () {
     ExtraIcons.showExtraIcon(ExtraIconNames.Ball)
     ExtraIcons.showExtraIcon(ExtraIconNames.Magnifier)
     ExtraIcons.showExtraIcon(ExtraIconNames.MicroBit)
+    ExtraIcons.showExtraIcon(ExtraIconNames.Ball)
     basic.showIcon(IconNames.Happy)
 })
