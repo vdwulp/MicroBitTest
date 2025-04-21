@@ -7,7 +7,7 @@ var pngdir = "png";
 var jresicons = ``;
 var p = path.join( __dirname, namespace, pngdir );
 console.log( "Reading directory " + p );
-var files fs.readdirSync( p );
+var files = fs.readdirSync( p );
 for ( var i = 0; i < files.length; i++ ) {
   var file = files[i];
   var iconname = file.substring(1, file.length - 4 );
