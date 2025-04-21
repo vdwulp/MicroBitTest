@@ -69,7 +69,7 @@ namespace ExtraIcons {
     //% imageLiteralColumns=8
     //% imageLiteralRows=8
     //% shim=images::createImage
-    export function createCustomImage(i: string): Image {
+    export function createCustomImage(i: String): Image {
         const im = <Image><any>i
         for (let y = 0; y < im.height(); ++y) {
             for (let x = 0; x < im.width(); ++x) {
@@ -86,7 +86,7 @@ namespace ExtraIcons {
     //% imageLiteralColumns=8
     //% imageLiteralRows=8
     //% shim=basic::showLeds
-    export function showCustomImage(i: string) {
+    export function showCustomImage(i: String) {
         const im2 = <Image><any>i;
         for (let y2 = 0; y2 < im2.height(); ++y2) {
             for (let x2 = 0; x2 < im2.width(); ++x2) {
@@ -172,41 +172,41 @@ namespace ExtraIcons {
                   # . . # .
                   . # . . #` )
             case ExtraIconNames.Heart: return images.createImage(
-                ` . # . # .
-                  # . # . #
-                  # . . . #
-                  . # . # .
-                  . . # . .` )
+                `. # . # .
+                 # . # . #
+                 # . . . #
+                 . # . # .
+                 . . # . .` )
             case ExtraIconNames.House: return images.createImage(
-                ` . . # . .
-                  . # # # .
-                  # # # # #
-                  # . # . #
-                  # # # . #`)
+                `. . # . .
+                 . # # # .
+                 # # # # #
+                 # . # . #
+                 # # # . #`)
             case ExtraIconNames.Skull: return images.createImage(
-                ` . # # # .
-                  # # # # #
-                  # . # . #
-                  . # . # .
-                  . # # # .`)
+                `. # # # .
+                 # # # # #
+                 # . # . #
+                 . # . # .
+                 . # # # .`)
             case ExtraIconNames.Duck: return images.createImage(
-                ` . . # # .
-                  . . # # #
-                  # # # # .
-                  # # # # .
-                  . # # . .`)
+                `. . # # .
+                 . . # # #
+                 # # # # .
+                 # # # # .
+                 . # # . .`)
             case ExtraIconNames.Dog: return images.createImage(
-                ` . . . # #
-                  . . . # #
-                  # # # # .
-                  . # # # .
-                  . # . # .` )
+                `. . . # #
+                 . . . # #
+                 # # # # .
+                 . # # # .
+                 . # . # .` )
             case ExtraIconNames.Cat: return images.createImage(
-                ` # . . # #
-                  # . . # #
-                  # # # # .
-                  . # # # .
-                  . # . # .` )
+                `# . . # #
+                 # . . # #
+                 # # # # .
+                 . # # # .
+                 . # . # .` )
             default: return images.createImage(
                 ` . # # # .
                   # . . . #
@@ -218,46 +218,10 @@ namespace ExtraIcons {
 
 }
 basic.forever(function () {
-    basic.showLeds(`
-        . # . # .
-        # . # . #
-        # . . . #
-        . # . # .
-        . . # . .
-        `)
-    basic.showLeds(`
-        . . # . .
-        . # # # .
-        # # # # #
-        # . # . #
-        # # # . #
-        `)
-    basic.showLeds(`
-        . # # # .
-        # # # # #
-        # . # . #
-        . # . # .
-        . # # # .
-        `)
-    basic.showLeds(`
-        . . # # .
-        . . # # #
-        # # # # .
-        # # # # .
-        . # # . .
-        `)
-    basic.showLeds(`
-        . . . # #
-        . . . # #
-        # # # # .
-        . # # # .
-        . # . # .
-        `)
-    basic.showLeds(`
-        # . . # #
-        # . . # #
-        # # # # .
-        . # # # .
-        . # . # .
-        `)
+    ExtraIcons.showExtraIcon(ExtraIconNames.Heart)
+    ExtraIcons.showExtraIcon(ExtraIconNames.House)
+    ExtraIcons.showExtraIcon(ExtraIconNames.Skull)
+    ExtraIcons.showExtraIcon(ExtraIconNames.Duck)
+    ExtraIcons.showExtraIcon(ExtraIconNames.Dog)
+    ExtraIcons.showExtraIcon(ExtraIconNames.Cat)
 })
