@@ -1,34 +1,55 @@
 enum ExtraIconNames {
-    //% block="Ball"
+    //% block="ball"
     //% jres=extraicons.ball
     Ball,
-    //% block="Magnifier"
+    //% block="magnifier"
     //% jres=extraicons.magnifier
     Magnifier,
-    //% block="MicroBit"
+    //% block="microsoft"
+    //% jres=extraicons.microsoft
+    Mircosoft,
+    //% block="microbit"
     //% jres=extraicons.microbit
-    MicroBit,
-    //% block="Notes"
+    Microbit,
+    //% block="music"
+    //% jres=extraicons.music
+    Music,
+    //% block="notes"
     //% jres=extraicons.notes
     Notes,
-    //% block="Horizontal"
+    //% block="horizontal"
     //% jres=extraicons.horizontal
     Horizontal,
-    //% block="Vertical"
+    //% block="vertical"
     //% jres=extraicons.vertical
     Vertical,
-    //% block="Grid"
+    //% block="grid"
     //% jres=extraicons.grid
     Grid,
-    //% block="Diagonal1"
+    //% block="diagonal1"
     //% jres=extraicons.diagonal1
     Diagonal1,
-    //% block="Diagonal2"
+    //% block="diagonal2"
     //% jres=extraicons.diagonal2
     Diagonal2,
-    //% block="Windows"
-    //% jres=extraicons.windows
-    Windows
+    //% block="heart"
+    //% jres=extraicons.heart
+    Heart,
+    //% block="house"
+    //% jres=extraicons.house
+    House,
+    //% block="skull"
+    //% jres=extraicons.skull
+    Skull,
+    //% block="duck"
+    //% jres=extraicons.duck
+    Duck,
+    //% block="dog"
+    //% jres=extraicons.dog
+    Dog,
+    //% block="cat"
+    //% jres=extraicons.cat
+    Cat
 }
 namespace ExtraIcons {
 
@@ -41,6 +62,39 @@ namespace ExtraIcons {
     export function showExtraIcon(icon: ExtraIconNames) {
         let res = extraIconImage(icon)
         res.showImage(0, 600)
+    }
+
+    //% block
+    //% imageLiteral=1
+    //% imageLiteralColumns=8
+    //% imageLiteralRows=8
+    //% shim=images::createImage
+    export function createCustomImage(i: string): Image {
+        const im = <Image><any>i
+        for (let y = 0; y < im.height(); ++y) {
+            for (let x = 0; x < im.width(); ++x) {
+                if (im.pixel(x, y)) {
+                    console.log(".")
+                }
+            }
+        }
+        return im
+    }
+
+    //% block
+    //% imageLiteral=1
+    //% imageLiteralColumns=8
+    //% imageLiteralRows=8
+    //% shim=basic::showLeds
+    export function showCustomImage(i: string) {
+        const im2 = <Image><any>i;
+        for (let y2 = 0; y2 < im2.height(); ++y2) {
+            for (let x2 = 0; x2 < im2.width(); ++x2) {
+                if (im2.pixel(x2, y2)) {
+                    console.log(".")
+                }
+            }
+        }
     }
 
     //% block
@@ -63,12 +117,24 @@ namespace ExtraIcons {
                   # # # . .
                   . . . # .
                   . . . . #` )
-            case ExtraIconNames.MicroBit: return images.createImage(
+            case ExtraIconNames.Mircosoft: return images.createImage(
+                ` # # . # #
+                  # # . # #
+                  . . . . .
+                  # # . # #
+                  # # . # #` )
+            case ExtraIconNames.Microbit: return images.createImage(
                 ` . . . . .
                   # # # # #
                   # . # . #
                   # # # # #
                   . . . . .` )
+            case ExtraIconNames.Music: return images.createImage(
+                ` . # # # #
+                  . # . . #
+                  . # . # #
+                  # # . # #
+                  # # . . .` )
             case ExtraIconNames.Notes: return images.createImage(
                 ` . . . . #
                   . # . . #
@@ -105,12 +171,42 @@ namespace ExtraIcons {
                   . . # . .
                   # . . # .
                   . # . . #` )
-            case ExtraIconNames.Windows: return images.createImage(
-                ` # # . # #
-                  # # . # #
-                  . . . . .
-                  # # . # #
-                  # # . # #` )
+            case ExtraIconNames.Heart: return images.createImage(
+                ` . # . # .
+                  # . # . #
+                  # . . . #
+                  . # . # .
+                  . . # . .` )
+            case ExtraIconNames.House: return images.createImage(
+                ` . . # . .
+                  . # # # .
+                  # # # # #
+                  # . # . #
+                  # # # . #`)
+            case ExtraIconNames.Skull: return images.createImage(
+                ` . # # # .
+                  # # # # #
+                  # . # . #
+                  . # . # .
+                  . # # # .`)
+            case ExtraIconNames.Duck: return images.createImage(
+                ` . . # # .
+                  . . # # #
+                  # # # # .
+                  # # # # .
+                  . # # . .`)
+            case ExtraIconNames.Dog: return images.createImage(
+                ` . . . # #
+                  . . . # #
+                  # # # # .
+                  . # # # .
+                  . # . # .` )
+            case ExtraIconNames.Cat: return images.createImage(
+                ` # . . # #
+                  # . . # #
+                  # # # # .
+                  . # # # .
+                  . # . # .` )
             default: return images.createImage(
                 ` . # # # .
                   # . . . #
@@ -122,9 +218,46 @@ namespace ExtraIcons {
 
 }
 basic.forever(function () {
-    ExtraIcons.showExtraIcon(ExtraIconNames.Grid)
-    ExtraIcons.showExtraIcon(ExtraIconNames.Windows)
-    ExtraIcons.showExtraIcon(ExtraIconNames.Diagonal2)
-    ExtraIcons.showExtraIcon(ExtraIconNames.Diagonal1)
-    basic.showIcon(IconNames.Happy)
+    basic.showLeds(`
+        . # . # .
+        # . # . #
+        # . . . #
+        . # . # .
+        . . # . .
+        `)
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # # # # #
+        # . # . #
+        # # # . #
+        `)
+    basic.showLeds(`
+        . # # # .
+        # # # # #
+        # . # . #
+        . # . # .
+        . # # # .
+        `)
+    basic.showLeds(`
+        . . # # .
+        . . # # #
+        # # # # .
+        # # # # .
+        . # # . .
+        `)
+    basic.showLeds(`
+        . . . # #
+        . . . # #
+        # # # # .
+        . # # # .
+        . # . # .
+        `)
+    basic.showLeds(`
+        # . . # #
+        # . . # #
+        # # # # .
+        . # # # .
+        . # . # .
+        `)
 })
