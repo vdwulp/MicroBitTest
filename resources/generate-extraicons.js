@@ -5,7 +5,7 @@ var namespace = "extraicons";
 var svgdir = "svg";
 
 const extraicons = {
-  ball: ` 
+  ball: `
     . # # # .
     # # # # #
     # # # # #
