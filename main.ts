@@ -10,7 +10,25 @@ enum ExtraIconNames {
     MicroBit,
     //% block="Notes"
     //% jres=extraicons.notes
-    Notes
+    Notes,
+    //% block="Horizontal"
+    //% jres=extraicons.horizontal
+    Horizontal,
+    //% block="Vertical"
+    //% jres=extraicons.vertical
+    Vertical,
+    //% block="Grid"
+    //% jres=extraicons.grid
+    Grid,
+    //% block="Diagonal1"
+    //% jres=extraicons.diagonal1
+    Diagonal1,
+    //% block="Diagonal2"
+    //% jres=extraicons.diagonal2
+    Diagonal2,
+    //% block="Windows"
+    //% jres=extraicons.windows
+    Windows
 }
 namespace ExtraIcons {
 
@@ -57,6 +75,42 @@ namespace ExtraIcons {
                   . # . # #
                   # # . # #
                   # # . . .` )
+            case ExtraIconNames.Horizontal: return images.createImage(
+                ` # # # # #
+                  . . . . .
+                  # # # # #
+                  . . . . .
+                  # # # # #` )
+            case ExtraIconNames.Vertical: return images.createImage(
+                ` # . # . #
+                  # . # . #
+                  # . # . #
+                  # . # . #
+                  # . # . #` )
+            case ExtraIconNames.Grid: return images.createImage(
+                ` # . # . #
+                  . . . . .
+                  # . # . #
+                  . . . . .
+                  # . # . #` )
+            case ExtraIconNames.Diagonal1: return images.createImage(
+                ` . # . . #
+                  # . . # .
+                  . . # . .
+                  . # . . #
+                  # . . # .` )
+            case ExtraIconNames.Diagonal2: return images.createImage(
+                ` # . . # .
+                  . # . . #
+                  . . # . .
+                  # . . # .
+                  . # . . #` )
+            case ExtraIconNames.Windows: return images.createImage(
+                ` # # . # #
+                  # # . # #
+                  . . . . .
+                  # # . # #
+                  # # . # #` )
             default: return images.createImage(
                 ` . # # # .
                   # . . . #
@@ -69,8 +123,8 @@ namespace ExtraIcons {
 }
 basic.forever(function () {
     ExtraIcons.showExtraIcon(ExtraIconNames.Ball)
-    ExtraIcons.showExtraIcon(ExtraIconNames.Magnifier)
-    ExtraIcons.showExtraIcon(ExtraIconNames.MicroBit)
-    ExtraIcons.showExtraIcon(ExtraIconNames.Notes)
+    ExtraIcons.showExtraIcon(ExtraIconNames.Windows)
+    ExtraIcons.showExtraIcon(ExtraIconNames.Diagonal2)
+    ExtraIcons.showExtraIcon(ExtraIconNames.Diagonal1)
     basic.showIcon(IconNames.Happy)
 })
