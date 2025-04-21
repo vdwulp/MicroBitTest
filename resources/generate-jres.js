@@ -16,8 +16,8 @@ for ( var i = 0; i < files.length; i++ ) {
   var pngfile = path.join( __dirname, namespace, pngdir, file );
   console.log( "Reading file " + pngfile );
   var pngencoded = fs.readFileSync( pngfile, { encoding: 'base64' } );
-  jresicons += `  ${iconname}": {\n`;
-  jresicons += `    icon": "data:image/png;base64,${pngencoded}"\n`;
+  jresicons += `  "${iconname}": {\n`;
+  jresicons += `    "icon": "data:image/png;base64,${pngencoded}"\n`;
   jresicons += `  }`;
   if ( i < files.length - 1 ) jresicons += `,`;
   jresicons += `\n`;
