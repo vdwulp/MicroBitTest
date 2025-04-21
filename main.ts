@@ -51,6 +51,12 @@ namespace ExtraIcons {
                   # . # . #
                   # # # # #
                   . . . . .` )
+            case ExtraIconNames.Notes: return images.createImage(
+                ` . . . . #
+                  . # . . #
+                  . # . # #
+                  # # . # #
+                  # # . . .` )
             default: return images.createImage(
                 ` . # # # .
                   # . . . #
@@ -65,6 +71,6 @@ basic.forever(function () {
     ExtraIcons.showExtraIcon(ExtraIconNames.Ball)
     ExtraIcons.showExtraIcon(ExtraIconNames.Magnifier)
     ExtraIcons.showExtraIcon(ExtraIconNames.MicroBit)
-    ExtraIcons.showExtraIcon(ExtraIconNames.Ball)
+    ExtraIcons.showExtraIcon(ExtraIconNames.Notes)
     basic.showIcon(IconNames.Happy)
 })
