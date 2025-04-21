@@ -1,13 +1,8 @@
 var fs = require('fs');
 var path = require('path');
 
-// You need to npm install svg2png for this to work
-//var svg2png = require('svg2png');
-
-var svgdir = "extraicons";
-//var outputdir = "../jres/extraicons";
-
-const svgNS = "http://www.w3.org/2000/svg";
+var namespace = "extraicons";
+var svgdir = "svg";
 
 const extraicons = {
   ball: ` 
@@ -30,64 +25,52 @@ const extraicons = {
     . . . . .`
 }
 
-console.log("Current directory:", __dirname);
-try {
-  if (!fs.existsSync(path.join(__dirname, svgdir))) {
-    console.log("Creating SVG-directory...");
-    fs.mkdirSync(path.join(__dirname, svgdir));
-  }
-} catch (err) {
-  console.error(err);
+// Check/create directories
+console.log("Current directory: ", __dirname);
+createPath( namespace, svgdir )
+
+
+function createPath( namespace, dir ) {
+  createDirectory( namespace );
+  createDirectory( path.join( namespace, dir ) );
 }
 
-/*try {
-  if (!fs.existsSync(path.join(__dirname, "../jres"))) {
-    console.log("Creating JRES-directory...");
-    fs.mkdirSync(path.join(__dirname, "../jres"));
+function createDirectory( dir ) {
+  try {
+    var path = path.join( __dirname, dir );
+    if ( !fs.existsSync( path ) ) {
+      console.log( "Creating directory " + path );
+      fs.mkdirSync( path );
+    }
+  } catch (err) {
+    console.error( err );
   }
-} catch (err) {
-  console.error(err);
 }
-
-try {
-  if (!fs.existsSync(path.join(__dirname, outputdir))) {
-    console.log("Creating PNG-directory...");
-    fs.mkdirSync(path.join(__dirname, outputdir));
-  }
-} catch (err) {
-  console.error(err);
-}*/
 
 Object.keys(extraicons).forEach(icon => {
     const data = extraicons[icon];
     const hexLiteral = data
-        .replace(/[ \n`\(\)]/gi, '');
+      .replace(/[ \n`\(\)]/gi, '');
 
     var svg = `<svg xmlns="http://www.w3.org/2000/svg" height="200" width="200">`;
     const width = 200;
     const height = 200;
-    //svg += '<rect width="100%" height="100%" fill="#176CBF"/>';
     for (var i = 0; i < 5; i++) {
-        for (j = 0; j < 5; j++) {
-            const hexItemVal = hexLiteral[(i * 5) + j] ? hexLiteral[(i * 5) + j] == '#' : false;
-            const x = j * (width / 5);
-            const y = i * (height / 5);
-            svg += `<rect y="5" x="5" width="30" height="30" rx="5" transform="translate(${x},${y})"
+      for (j = 0; j < 5; j++) {
+        const hexItemVal = hexLiteral[(i * 5) + j] ? hexLiteral[(i * 5) + j] == '#' : false;
+        const x = j * (width / 5);
+        const y = i * (height / 5);
+        svg += `<rect y="5" x="5" width="30" height="30" rx="5" transform="translate(${x},${y})"
                 fill="${hexItemVal ? '#fff' : '#000'}"
-                fill-opacity="${hexItemVal ? '1.0' : '0.2'}"/>\n`; //#006CC2
-        }
+                fill-opacity="${hexItemVal ? '1.0' : '0.2'}"/>\n`;
+      }
     }
     svg += `</svg>`;
-    const svgPath = path.join(__dirname, svgdir, icon + ".svg");
-    console.log(svgPath);
-    fs.writeFile(svgPath, svg, { encoding: 'utf8', flag: 'w' }, function(err, result) {
-        if (err) console.log("error writing to file");
+  
+    const svgPath = path.join( __dirname, namespace, svgdir, icon + ".svg" );
+    console.log( svgPath );
+    fs.writeFile( svgPath, svg, { encoding: 'utf8', flag: 'w' }, function( err, result ) {
+        if (err) console.log( "Error writing to " + svgPath );
     });
-
-    /*const sourceBuffer = Buffer.from(svg, 'utf8');
-    svg2png(sourceBuffer, { width: 200, height: 200 })
-        .then(buffer => fs.writeFile(path.join(outputdir, icon + "-icon.png"), buffer, { encoding: 'utf8', flag: 'w' }, function (err, result) {
-            if (err) console.log("error writing to file");
-        }))
-        .catch(e => console.error(e));*/
+  console.log( "Created " + svgPath );
 });
