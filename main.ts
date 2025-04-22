@@ -64,16 +64,19 @@ namespace ExtraIcons {
         res.showImage(0, 600)
     }
 
-    //% block
+    //% block="create custom image"
+    //% blockId=extraicons_create_custom_image
     //% imageLiteral=1
     //% imageLiteralColumns=8
     //% imageLiteralRows=8
     //% shim=images::createImage
-    export function createCustomImage(i: String): Image {
+    export function createCustomImage(i: string ): Image {
         const im = <Image><any>i
         for (let y = 0; y < im.height(); ++y) {
             for (let x = 0; x < im.width(); ++x) {
                 if (im.pixel(x, y)) {
+                    console.log("#")
+                } else {
                     console.log(".")
                 }
             }
@@ -81,20 +84,24 @@ namespace ExtraIcons {
         return im
     }
 
-    //% block
+    //% block="show custom image"
+    //% blockId=extraicons_show_custom_image
     //% imageLiteral=1
     //% imageLiteralColumns=8
     //% imageLiteralRows=8
     //% shim=basic::showLeds
-    export function showCustomImage(i: String) {
-        const im2 = <Image><any>i;
+    export function showCustomImage(leds: string ) {
+        const im2 = <Image><any>leds;
         for (let y2 = 0; y2 < im2.height(); ++y2) {
             for (let x2 = 0; x2 < im2.width(); ++x2) {
                 if (im2.pixel(x2, y2)) {
+                    console.log("#")
+                } else {
                     console.log(".")
                 }
             }
         }
+        im2.showImage(0, 600)
     }
 
     //% block
@@ -218,10 +225,15 @@ namespace ExtraIcons {
 
 }
 basic.forever(function () {
-    ExtraIcons.showExtraIcon(ExtraIconNames.Heart)
-    ExtraIcons.showExtraIcon(ExtraIconNames.House)
-    ExtraIcons.showExtraIcon(ExtraIconNames.Skull)
-    ExtraIcons.showExtraIcon(ExtraIconNames.Duck)
-    ExtraIcons.showExtraIcon(ExtraIconNames.Dog)
     ExtraIcons.showExtraIcon(ExtraIconNames.Cat)
+    ExtraIcons.showCustomImage(`
+        . . . . . . . .
+        . # # . . # # .
+        # # # # # # # #
+        # # # # # # # #
+        # # # # # # # #
+        . # # # # # # .
+        . . # # # # . .
+        . . . # # . . .
+        `)
 })
