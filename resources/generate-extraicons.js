@@ -168,15 +168,13 @@ function createDirectory( dir ) {
 function iconToSVG( hex, w, h ) {
   const width = w * 40;
   const height = h * 40;
-  var svg = `<svg xmlns="http://www.w3.org/2000/svg" height="${ width }" width="${ height }">`;
+  var svg = `<svg xmlns="http://www.w3.org/2000/svg" height="${ width }" width="${ height }">\n`;
   for ( var r = 0; r < h; r++ ) {
     for ( var c = 0; c < w; c++ ) {
       const on = hex[ ( r * w ) + c ] ? hex[ ( r * w ) + c ] == '#' : false;
-      const x = c * 40;
-      const y = r * 40;
-      svg += `<rect y="5" x="5" width="30" height="30" rx="5" transform="translate(${ x },${ y })"
-              fill="${ on ? '#fff' : '#000' }"
-              fill-opacity="${ on ? '1.0' : '0.2' }"/>\n`;
+      const x = 5 + c * 40;
+      const y = 5 + r * 40;
+      svg += `<rect x="${ x }" y="${ y }" width="30" height="30" rx="5" fill="${ on ? '#fff' : '#000' }" fill-opacity="${ on ? '1.0' : '0.2' }"/>\n`;
     }
   }
   svg += `</svg>`;
