@@ -64,44 +64,34 @@ namespace ExtraIcons {
         res.showImage(0, 600)
     }
 
-    //% block="create custom image"
-    //% blockId=extraicons_create_custom_image
+    //% block="create extra image"
+    //% blockId=extraicons_create_extra_image
     //% imageLiteral=1
     //% imageLiteralColumns=8
     //% imageLiteralRows=8
     //% shim=images::createImage
-    export function createCustomImage(i: string ): Image {
-        const im = <Image><any>i
-        for (let y = 0; y < im.height(); ++y) {
-            for (let x = 0; x < im.width(); ++x) {
-                if (im.pixel(x, y)) {
-                    console.log("#")
-                } else {
-                    console.log(".")
-                }
-            }
-        }
-        return im
+    export function createExtraImage(i: string): Image {
+        let img = <Image><any>i
+        return img
     }
 
-    //% block="show custom image"
-    //% blockId=extraicons_show_custom_image
+    //% block="show extra leds"
+    //% blockId=extraicons_show_extra_leds
     //% imageLiteral=1
     //% imageLiteralColumns=8
     //% imageLiteralRows=8
     //% shim=basic::showLeds
-    export function showCustomImage(leds: string ) {
-        const im2 = <Image><any>leds;
-        for (let y2 = 0; y2 < im2.height(); ++y2) {
-            for (let x2 = 0; x2 < im2.width(); ++x2) {
-                if (im2.pixel(x2, y2)) {
-                    console.log("#")
-                } else {
-                    console.log(".")
-                }
+    export function showExtraLeds(leds: string) {
+        let im = <Image><any>leds;
+        let s = ``
+        for (let y = 0; y < im.height(); y++) {
+            for (let x = 0; x < im.width(); x++) {
+                s += im.pixel(x,y) ? `#` : `.`
             }
+            s += `\n`
         }
-        im2.showImage(0, 600)
+        console.log(s)
+        im.showImage(0, 600)
     }
 
     //% block
@@ -112,128 +102,136 @@ namespace ExtraIcons {
     //% i.fieldOptions.maxRows=4
     export function extraIconImage(i: ExtraIconNames): Image {
         switch (i) {
-            case ExtraIconNames.Ball: return images.createImage(
-                ` . # # # .
-                  # # # # #
-                  # # # # #
-                  # # # # #
-                  . # # # .` )
-            case ExtraIconNames.Magnifier: return images.createImage(
-                ` # # # . .
-                  # . # . .
-                  # # # . .
-                  . . . # .
-                  . . . . #` )
-            case ExtraIconNames.Mircosoft: return images.createImage(
-                ` # # . # #
-                  # # . # #
-                  . . . . .
-                  # # . # #
-                  # # . # #` )
-            case ExtraIconNames.Microbit: return images.createImage(
-                ` . . . . .
-                  # # # # #
-                  # . # . #
-                  # # # # #
-                  . . . . .` )
-            case ExtraIconNames.Music: return images.createImage(
-                ` . # # # #
-                  . # . . #
-                  . # . # #
-                  # # . # #
-                  # # . . .` )
-            case ExtraIconNames.Notes: return images.createImage(
-                ` . . . . #
-                  . # . . #
-                  . # . # #
-                  # # . # #
-                  # # . . .` )
-            case ExtraIconNames.Horizontal: return images.createImage(
-                ` # # # # #
-                  . . . . .
-                  # # # # #
-                  . . . . .
-                  # # # # #` )
-            case ExtraIconNames.Vertical: return images.createImage(
-                ` # . # . #
-                  # . # . #
-                  # . # . #
-                  # . # . #
-                  # . # . #` )
-            case ExtraIconNames.Grid: return images.createImage(
-                ` # . # . #
-                  . . . . .
-                  # . # . #
-                  . . . . .
-                  # . # . #` )
-            case ExtraIconNames.Diagonal1: return images.createImage(
-                ` . # . . #
-                  # . . # .
-                  . . # . .
-                  . # . . #
-                  # . . # .` )
-            case ExtraIconNames.Diagonal2: return images.createImage(
-                ` # . . # .
-                  . # . . #
-                  . . # . .
-                  # . . # .
-                  . # . . #` )
-            case ExtraIconNames.Heart: return images.createImage(
-                `. # . # .
-                 # . # . #
-                 # . . . #
-                 . # . # .
-                 . . # . .` )
-            case ExtraIconNames.House: return images.createImage(
-                `. . # . .
-                 . # # # .
-                 # # # # #
-                 # . # . #
-                 # # # . #`)
-            case ExtraIconNames.Skull: return images.createImage(
-                `. # # # .
-                 # # # # #
-                 # . # . #
-                 . # . # .
-                 . # # # .`)
-            case ExtraIconNames.Duck: return images.createImage(
-                `. . # # .
-                 . . # # #
-                 # # # # .
-                 # # # # .
-                 . # # . .`)
-            case ExtraIconNames.Dog: return images.createImage(
-                `. . . # #
-                 . . . # #
-                 # # # # .
-                 . # # # .
-                 . # . # .` )
-            case ExtraIconNames.Cat: return images.createImage(
-                `# . . # #
-                 # . . # #
-                 # # # # .
-                 . # # # .
-                 . # . # .` )
-            default: return images.createImage(
-                ` . # # # .
-                  # . . . #
-                  . . . # .
-                  . . # . .
-                  . . # . .` )
+            case ExtraIconNames.Ball: return images.createImage(`
+                . # # # .
+                # # # # #
+                # # # # #
+                # # # # #
+                . # # # .
+                `)
+            case ExtraIconNames.Magnifier: return images.createImage(`
+                # # # . .
+                # . # . .
+                # # # . .
+                . . . # .
+                . . . . #
+                `)
+            case ExtraIconNames.Mircosoft: return images.createImage(`
+                # # . # #
+                # # . # #
+                . . . . .
+                # # . # #
+                # # . # #
+                `)
+            case ExtraIconNames.Microbit: return images.createImage(`
+                . . . . .
+                # # # # #
+                # . # . #
+                # # # # #
+                . . . . .
+                `)
+            case ExtraIconNames.Music: return images.createImage(`
+                . # # # #
+                . # . . #
+                . # . # #
+                # # . # #
+                # # . . .
+                `)
+            case ExtraIconNames.Notes: return images.createImage(`
+                . . . . #
+                . # . . #
+                . # . # #
+                # # . # #
+                # # . . .
+                `)
+            case ExtraIconNames.Horizontal: return images.createImage(`
+                # # # # #
+                . . . . .
+                # # # # #
+                . . . . .
+                # # # # #
+                `)
+            case ExtraIconNames.Vertical: return images.createImage(`
+                # . # . #
+                # . # . #
+                # . # . #
+                # . # . #
+                # . # . #
+                `)
+            case ExtraIconNames.Grid: return images.createImage(`
+                # . # . #
+                . . . . .
+                # . # . #
+                . . . . .
+                # . # . #
+                `)
+            case ExtraIconNames.Diagonal1: return images.createImage(`
+                . # . . #
+                # . . # .
+                . . # . .
+                . # . . #
+                # . . # .
+                `)
+            case ExtraIconNames.Diagonal2: return images.createImage(`
+                # . . # .
+                . # . . #
+                . . # . .
+                # . . # .
+                . # . . #
+                `)
+            case ExtraIconNames.Heart: return images.createImage(`
+                . # . # .
+                # . # . #
+                # . . . #
+                . # . # .
+                . . # . .
+                `)
+            case ExtraIconNames.House: return images.createImage(`
+                . . # . .
+                . # # # .
+                # # # # #
+                # . # . #
+                # # # . #
+                `)
+            case ExtraIconNames.Skull: return images.createImage(`
+                . # # # .
+                # # # # #
+                # . # . #
+                . # . # .
+                . # # # .
+                `)
+            case ExtraIconNames.Duck: return images.createImage(`
+                . . # # .
+                . . # # #
+                # # # # .
+                # # # # .
+                . # # . .
+                `)
+            case ExtraIconNames.Dog: return images.createImage(`
+                . . . # #
+                . . . # #
+                # # # # .
+                . # # # .
+                . # . # .
+                `)
+            case ExtraIconNames.Cat: return images.createImage(`
+                # . . # #
+                # . . # #
+                # # # # .
+                . # # # .
+                . # . # .
+                `)
+            default: return images.createImage(`
+                . # # # .
+                # . . . #
+                . . . # .
+                . . # . .
+                . . # . .
+                `)
         }
     }
 
 }
 basic.forever(function () {
-    ExtraIcons.showExtraIcon(ExtraIconNames.Cat)
-    ExtraIcons.showCustomImage(`
-        . . . . . . . .
-        . # # . . # # .
-        # # # # # # # #
-        # # # # # # # #
-        # # # # # # # #
-        . # # # # # # .
-        . . # # # # . .
-        . . . # # . . .
-        `)
+	
 })
