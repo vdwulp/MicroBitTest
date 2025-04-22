@@ -80,6 +80,7 @@ namespace ExtraIcons {
     //% imageLiteral=1
     //% imageLiteralColumns=8
     //% imageLiteralRows=8
+    //% imageLiteralScale=0.7 // limits 0.6 - 2, default 1
     //% shim=basic::showLeds
     export function showExtraLeds(leds: string) {
         let im = <Image><any>leds;
